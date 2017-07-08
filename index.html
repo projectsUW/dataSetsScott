@@ -125,9 +125,8 @@ $(document).ready(function () {
 <div id="this-is-a-dataset-of-legislator-characteristics-that-dont-change-over-time." class="section level4">
 <h4>This is a dataset of legislator characteristics that don’t change over time.</h4>
 <p>You can identify a legislator using “<em>dni</em>” (<em>dni</em> is unique, <em>name</em> may have different versions); you can use “<em>congre</em>” (values from 1 to 4 indicating the four congresses included for the last 20 years),“<em>session</em>” and “<em>year</em>” to identify time. Columns <em>session</em> (integer from 1 to 5) and <em>year</em> (name of the congress session, for example: ‘C9596’) give the same information; there are five <strong>session</strong>s in each <strong>congre</strong>ss.</p>
-<pre><code>##  [1] &quot;dni&quot;                    &quot;name&quot;                   &quot;congre&quot;                 &quot;session&quot;               
-##  [5] &quot;year&quot;                   &quot;region&quot;                 &quot;from_capital&quot;           &quot;experience&quot;            
-##  [9] &quot;experience_true&quot;        &quot;governing_true&quot;         &quot;party&quot;                  &quot;votes&quot;                 
+<pre><code>##  [1] &quot;dni&quot;                    &quot;name&quot;                   &quot;congre&quot;                 &quot;session&quot;                &quot;year&quot;                   &quot;region&quot;                
+##  [7] &quot;from_capital&quot;           &quot;experience&quot;             &quot;experience_true&quot;        &quot;governing_true&quot;         &quot;party&quot;                  &quot;votes&quot;                 
 ## [13] &quot;votesPerc&quot;              &quot;reelected_nextElection&quot;</code></pre>
 <p>Columns <em>region</em> and <em>from_capital</em> can not be used in the first Congress (1995-2000), because legilators simply represented the Nation (one district). Column <em>experience</em> counts the previous times a legislator has been in congress; <em>experience_true</em> is a boolean version (‘1’ if previoulsly elected). Column <em>governing_true</em> informs if the legislator belongs to the party in the Executive. Column <em>votesPerc</em> is the share of the preferential votes, from the total preferential votes.</p>
 <p>This is how the data set looks (sample):</p>
@@ -152,15 +151,15 @@ $(document).ready(function () {
 ## 18 00026752      3       5              1   PARTIDO APRISTA PERUANO 0.005945742                      0
 ## 19 00046218      1       1              1 CAMBIO 90 - NUEVA MAYORIA 0.002906065                      0
 ## 20 00046218      1       2              1 CAMBIO 90 - NUEVA MAYORIA 0.002906065                      0</code></pre>
-<p>The column <em>party</em> is the name of the party that compited in the elections.</p>
+<p>The column <em>party</em> is the name of the party that competed in the elections.</p>
+<p><strong>Download</strong> the time-invariant data set <a href="https://github.com/projectsUW/dataSetsScott/blob/master/invariantData.RData?raw=true">here</a></p>
 </div>
 <div id="this-is-a-dataset-of-legislator-characteristics-that-do-change-over-time." class="section level4">
 <h4>This is a dataset of legislator characteristics that do change over time.</h4>
 <p>You can identify a legislator using “<em>dni</em>”; you can use “<em>congre</em>” (values from 1 to 4 indicating the four congresses included for the last 20 years),“<em>session</em>” and “<em>year</em>” to identify time. Columns <em>session</em> (integer from 1 to 5) and <em>year</em> (name of the congress session, for example: ‘C9596’) give the same information; there are five <strong>session</strong>s in each <strong>congre</strong>ss.</p>
-<pre><code>##  [1] &quot;dni&quot;                &quot;congre&quot;             &quot;session&quot;            &quot;year&quot;               &quot;betweenness&quot;       
-##  [6] &quot;closeness&quot;          &quot;degree&quot;             &quot;count_proposals&quot;    &quot;currentGroup&quot;       &quot;startGroup&quot;        
-## [11] &quot;weightCurrentGroup&quot; &quot;weightStartGroup&quot;   &quot;ei_capital&quot;         &quot;ei_experience&quot;      &quot;ei_governing&quot;      
-## [16] &quot;ei_group&quot;           &quot;ei_party&quot;           &quot;ei_region&quot;          &quot;ei_start&quot;           &quot;switch_nextYear&quot;</code></pre>
+<pre><code>##  [1] &quot;dni&quot;                &quot;congre&quot;             &quot;session&quot;            &quot;year&quot;               &quot;betweenness&quot;        &quot;closeness&quot;          &quot;degree&quot;            
+##  [8] &quot;count_proposals&quot;    &quot;currentGroup&quot;       &quot;startGroup&quot;         &quot;weightCurrentGroup&quot; &quot;weightStartGroup&quot;   &quot;ei_capital&quot;         &quot;ei_experience&quot;     
+## [15] &quot;ei_governing&quot;       &quot;ei_group&quot;           &quot;ei_party&quot;           &quot;ei_region&quot;          &quot;ei_start&quot;           &quot;switch_nextYear&quot;</code></pre>
 <p>The column <strong>currentGroup</strong> is the name of the parliamentary group (PG) where the legislator is currently affiliated. <strong>startGroup</strong> informs in what PG the legislator started (it may be different than <em>party</em>). All the variables with the <strong>ei</strong> prefix are measures of homophily, computed from cosponsorship network.</p>
 <p>This is how the data set looks (sample):</p>
 <pre><code>##         dni congre  year  betweenness            currentGroup ei_experience switch_nextYear
@@ -184,54 +183,35 @@ $(document).ready(function () {
 ## 18 00026752      3 C1011 0.0016708600 PARTIDO APRISTA PERUANO     0.1363636              NA
 ## 19 00046218      1 C9596 0.0063181562               CAMBIO 90     0.2222222               0
 ## 20 00046218      1 C9697 0.0070902638               CAMBIO 90     0.1752577               0</code></pre>
+<p><strong>Download</strong> the time-varying data set <a href="https://github.com/projectsUW/dataSetsScott/blob/master/varyingData.RData?raw=true">here</a></p>
 </div>
 </div>
 <div id="party-characteristics-data" class="section level2">
 <h2>2. Party Characteristics Data</h2>
-<div id="this-is-a-dataset-of-parties.-it-will-be-a-small-dataset.-it-will-have-characteristics-of-parties-for-example-party-name-ideology-lcr-size-after-election-vote-percent-last-election-does-party-control-presidency-is-party-in-government-legislature-number-etc" class="section level3">
-<h3>This is a dataset of parties. It will be a small dataset. It will have characteristics of parties, for example: Party Name, Ideology (LCR), Size after election, vote percent last election, Does Party control Presidency?, Is party in government?, legislature number, etc</h3>
-<pre><code>##                                                       name congre_1 congre_2 congre_3 congre_4 ideology inGovernment_1
-## 1                                           ACCION POPULAR        4        3        0        0        1              0
-## 2                       ALIANZA ELECTORAL SOLUCION POPULAR        0        1        0        0        1              0
-## 3                                    ALIANZA POR EL FUTURO        0        0       11        0        1              0
-## 4                               ALIANZA POR EL GRAN CAMBIO        0        0        0        6        1              0
-## 5                             ALIANZA SOLIDARIDAD NACIONAL        0        0        0        6        1              0
-## 6                                CAMBIO 90 - NUEVA MAYORIA       70        1        0        0        1              1
-## 7                                      CODE - PAIS POSIBLE        5        0        0        0       -1              0
-## 8                                         FRENTE DE CENTRO        0        0        6        0        0              0
-## 9                         FRENTE INDEPENDIENTE MORALIZADOR        6       11        0        0       -1              0
-## 10                    FRENTE POPULAR AGRICOLA FIA DEL PERU        1        0        0        0        0              0
-## 11                                             FUERZA 2011        0        0        0       31        1              0
-## 12                                               GANA PERU        0        0        0       38       -1              0
-## 13                                         IZQUIERDA UNIDA        2        0        0        0       -1              0
-## 14                        MOVIMIENTO CIVICO NACIONAL OBRAS        2        0        0        0        0              0
-## 15                        MOVIMIENTO INDEPENDIENTE AGRARIO        1        0        0        0        0              0
-## 16 MOVIMIENTO INDEPENDIENTE SOMOS PERU - CAUSA DEMOCRATICA        0        4        0        0        1              0
-## 17                                 PARTIDO APRISTA PERUANO        8       26       25        0       -1              0
-## 18                               PARTIDO POPULAR CRISTIANO        3        0        0        0        1              0
-## 19                             PARTIDO RENACIMIENTO ANDINO        0        1        0        0        0              0
-## 20                               PERU AL 2000 - FRENATRACA        1        0        0        0        0              0
-##    inGovernment_2 inGovernment_3 inGovernment_4
-## 1               0              0              0
-## 2               0              0              0
-## 3               0              0              0
-## 4               0              0              0
-## 5               0              0              0
-## 6               0              0              0
-## 7               0              0              0
-## 8               0              0              0
-## 9               0              0              0
-## 10              0              0              0
-## 11              0              0              0
-## 12              0              0              1
-## 13              0              0              0
-## 14              0              0              0
-## 15              0              0              0
-## 16              0              0              0
-## 17              0              1              0
-## 18              0              0              0
-## 19              0              0              0
-## 20              0              0              0</code></pre>
+<div id="this-is-a-dataset-of-parties." class="section level4">
+<h4>This is a dataset of parties.</h4>
+<pre><code>##                                name congr_1 congr_2 congr_3 congr_4 ideology inGov_1 inGov_2 inGov_3 inGov_4
+## 1                    ACCION POPULAR       4       3       0       0        1       0       0       0       0
+## 2             ALIANZA POR EL FUTURO       0       0      11       0        1       0       0       0       0
+## 3        ALIANZA POR EL GRAN CAMBIO       0       0       0       6        1       0       0       0       0
+## 4      ALIANZA SOLIDARIDAD NACIONAL       0       0       0       6        1       0       0       0       0
+## 5         CAMBIO 90 - NUEVA MAYORIA      70       1       0       0        1       0       0       0       0
+## 6               CODE - PAIS POSIBLE       5       0       0       0        1       1       0       0       0
+## 7                  FRENTE DE CENTRO       0       0       6       0       -1       0       0       0       0
+## 8  FRENTE INDEPENDIENTE MORALIZADOR       6      11       0       0        0       0       0       0       0
+## 9  FRENTE POPULAR AGRICOLA DEL PERU       1       0       0       0       -1       0       0       0       0
+## 10                      FUERZA 2011       0       0       0      31        0       0       0       0       0
+## 11                        GANA PERU       0       0       0      38        1       0       0       0       0
+## 12                  IZQUIERDA UNIDA       2       0       0       0       -1       0       0       0       1
+## 13 MOVIMIENTO CIVICO NACIONAL OBRAS       2       0       0       0       -1       0       0       0       0
+## 14 MOVIMIENTO INDEPENDIENTE AGRARIO       1       0       0       0        0       0       0       0       0
+## 15          PARTIDO APRISTA PERUANO       8      26      25       0        0       0       0       0       0
+## 16        PARTIDO POPULAR CRISTIANO       3       0       0       0        1       0       0       0       0
+## 17      PARTIDO RENACIMIENTO ANDINO       0       1       0       0       -1       0       0       1       0
+## 18        PERU AL 2000 - FRENATRACA       1       0       0       0        1       0       0       0       0
+## 19                     PERU POSIBLE       0      42       1      16        0       0       0       0       0
+## 20                       RENOVACION       3       0       0       0        0       0       0       0       0</code></pre>
+<p><strong>Download</strong> the PARTY data set <a href="https://github.com/projectsUW/dataSetsScott/blob/master/party.RData?raw=true">here</a></p>
 </div>
 </div>
 

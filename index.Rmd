@@ -6,7 +6,7 @@ output:
 ---
 
 ```{r set-options, echo=FALSE, cache=FALSE}
-options(width = 120)
+options(width = 160)
 ```
 ## 1. Legislator Characteristics
 
@@ -33,6 +33,14 @@ legisDF$session=as.numeric(test)
 legisDF$party=ifelse(legisDF$party=='ALIANZA ELECTORAL CAMBIO 90 - NUEVA MAYORIA','CAMBIO 90 - NUEVA MAYORIA',legisDF$party)
 legisDF$party=ifelse(legisDF$party=='ALIANZA ELECTORAL UNIDAD NACIONAL','UNIDAD NACIONAL',legisDF$party)
 legisDF$party=ifelse(legisDF$party=='AGRUPACION INDEPENDIENTE UNION POR EL PERU - SOCIAL DEMOCRACIA','UNION POR EL PERU',legisDF$party)
+
+legisDF$party=ifelse(legisDF$party=='MOVIMIENTO INDEPENDIENTE SOMOS PERU - CAUSA DEMOCRATICA','SOMOS PERU - CAUSA DEMOCRATICA',legisDF$party)
+
+legisDF$party=ifelse(legisDF$party=='FRENTE POPULAR AGRICOLA FIA DEL PERU','FRENTE POPULAR AGRICOLA DEL PERU',legisDF$party)
+
+
+legisDF$party=ifelse(legisDF$party=='ALIANZA ELECTORAL SOLUCION POPULAR','SOLUCION POPULAR',legisDF$party)
+
 ```
 
 ```{r,echo=FALSE}
@@ -53,7 +61,9 @@ This is how the data set looks (sample):
 head(nochange[,c(1,3,4,10,11,13,14)],20)
 ```
 
-The column *party* is the name of the party that compited in the elections.
+The column *party* is the name of the party that competed in the elections.
+
+**Download** the time-invariant data set [here](https://github.com/projectsUW/dataSetsScott/blob/master/invariantData.RData?raw=true)
 
 #### This is a dataset of legislator characteristics that do change over time.
 
@@ -74,10 +84,11 @@ This is how the data set looks (sample):
 head(change[,c(1,2,4,5,9,14,20)],20)
 ```
 
+**Download** the time-varying data set [here](https://github.com/projectsUW/dataSetsScott/blob/master/varyingData.RData?raw=true)
 
 ## 2. Party Characteristics Data
 
-### This is a dataset of parties. It will be a small dataset. It will have characteristics of parties, for example: Party Name, Ideology (LCR), Size after election, vote percent last election, Does Party control Presidency?, Is party in government?, legislature number, etc
+#### This is a dataset of parties. 
 
 ```{r, echo=FALSE,eval=F}
 # library(foreign)
@@ -93,11 +104,11 @@ party$name=row.names(party)
 row.names(party)=NULL
 party=party[,c(5,1:4)]
 party$ideology=c(1,1,1,1,1,1,-1,0,-1,0,1,-1,-1,0,0,1,-1,1,0,0,-1,1,1,0,1,-1)
-names(party)[c(2:5)]=c('congre_1','congre_2','congre_3','congre_4')
-party$inGovernment_1=0
-party$inGovernment_2=0
-party$inGovernment_3=0
-party$inGovernment_4=0
+names(party)[c(2:5)]=c('congr_1','congr_2','congr_3','congr_4')
+party$inGov_1=0
+party$inGov_2=0
+party$inGov_3=0
+party$inGov_4=0
 party[6,7]=1
 party[21,8]=1
 party[17,9]=1
@@ -105,13 +116,14 @@ party[12,10]=1
 head(party,20)
 ```
 
-```{r}
+```{r,echo=FALSE}
 invariantData=nochange
 save(invariantData,file='invariantData.RData')
 varyingData=change
 save(varyingData,file='varyingData.RData')
-
+save(party,file='party.RData')
 ```
 
+**Download** the PARTY data set [here](https://github.com/projectsUW/dataSetsScott/blob/master/party.RData?raw=true)
 
 
