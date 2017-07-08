@@ -10,7 +10,7 @@ options(width = 160)
 ```
 ## 1. Legislator Characteristics
 
-#### This is a dataset of legislator characteristics that don't change over time. 
+### This is a dataset of legislator characteristics that don't change over time. 
 
 You can identify a legislator using "*dni*" (*dni* is unique, *name* may have different versions); you can use "*congre*" (values from 1 to 4 indicating the four congresses included for the last 20 years),"*session*" and "*year*"  to identify time. Columns *session* (integer from 1 to 5) and *year* (name of the congress session, for example: 'C9596') give the same information; there are five **session**s in each **congre**ss. 
 
@@ -65,7 +65,9 @@ The column *party* is the name of the party that competed in the elections.
 
 **Download** the time-invariant data set [here](https://github.com/projectsUW/dataSetsScott/blob/master/invariantData.RData?raw=true)
 
-#### This is a dataset of legislator characteristics that do change over time.
+----
+
+### This is a dataset of legislator characteristics that do change over time.
 
 You can identify a legislator using "*dni*"; you can use "*congre*" (values from 1 to 4 indicating the four congresses included for the last 20 years),"*session*" and "*year*"  to identify time. Columns *session* (integer from 1 to 5) and *year* (name of the congress session, for example: 'C9596') give the same information; there are five **session**s in each **congre**ss. 
 ```{r,echo=FALSE}
@@ -86,9 +88,10 @@ head(change[,c(1,2,4,5,9,14,20)],20)
 
 **Download** the time-varying data set [here](https://github.com/projectsUW/dataSetsScott/blob/master/varyingData.RData?raw=true)
 
+-----
 ## 2. Party Characteristics Data
 
-#### This is a dataset of parties. 
+### This is a dataset of parties. 
 
 ```{r, echo=FALSE,eval=F}
 # library(foreign)
